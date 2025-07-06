@@ -35,4 +35,9 @@ public class StudentController {
     public String getAllStudentByDepartment(@RequestBody String department) {
         return studentService.getAllStudentByDepartment(department).toString();
     }
+    //health check
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "Service is up and running!";
+    }
 }
