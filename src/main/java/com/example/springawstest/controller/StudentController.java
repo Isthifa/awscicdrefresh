@@ -40,4 +40,10 @@ public class StudentController {
     public String healthCheck() {
         return "Service is up and running!";
     }
+
+    //test
+    @GetMapping("/test")
+    public String test() {
+        return "Test endpoint is working!";
+    }
 }
