@@ -23,16 +23,13 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"SpringAws","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-      - echo Writing image definitions file...
-      # add your container name
       - DOCKER_CONTAINER_NAME=isthifa-registry
       - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
       - cat imagedefinitions.json
 
-  artifacts:
-    files:
-      - imagedefinitions.json
-      - target/SpringAwsTest-0.0.1-SNAPSHOT.jar
+artifacts:
+  files:
+    - imagedefinitions.json
+    - target/SpringAwsTest-0.0.1-SNAPSHOT.jar
